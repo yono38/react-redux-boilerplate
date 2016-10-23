@@ -13,7 +13,8 @@ import Countdown from './Countdown';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    running: state.countdown.running,
+    isRunning: state.countdown.running,
+    value: state.counter,
     pid: state.countdown.pid
   };
 };

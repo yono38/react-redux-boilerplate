@@ -1,22 +1,29 @@
 import React, { PropTypes, Component } from 'react'
 
-const Countdown = ({running, pid, onStart, onEnd}) => {
-	const displayedPid = typeof pid === 'number' ? pid.toString() : 'null';
-	return (
-		<div>
-			<h1>Countdown Is running: {running.toString()}</h1>
-			<h2>Pid is: {displayedPid}</h2>
-			<button onClick={onStart}>Start</button>
-			<button onClick={onEnd}>End</button>
-		</div>
-	);
+const Countdown = ({value, isRunning, pid, onStart, onEnd }) => {
+    const countdownDisabled = !(value > 0) ? "disabled" : null;
+
+    // End the countdown
+    if (value === 0 && isRunning === true) {
+        onEnd(pid);
+    }
+
+    return (
+        <button disabled={countdownDisabled} onClick={onStart}>Start Countdown</button>
+    );
 };
 
 Countdown.propTypes = {
-	running: PropTypes.bool,
-	pid: PropTypes.number,
-	onStart: PropTypes.func,
-	onEnd: PropTypes.func
+    isRunning: PropTypes.bool,
+    onStart: PropTypes.func.isRequired,
+    onEnd: PropTypes.func.isRequired,
+    pid: PropTypes.number,
+    value: PropTypes.number
+}
+
+Countdown.defaultProps = {
+    value: 0,
+    isRunning: false
 }
 
 export default Countdown;

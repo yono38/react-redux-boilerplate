@@ -8,8 +8,8 @@ export default (state = initialState, action) => {
       return state + action.value;
     case DECREMENT:
       return state - 1;
-  	case CLEAR:
-  	  return initialState;
+    case CLEAR:
+      return initialState;
     default:
       return state;
   }
