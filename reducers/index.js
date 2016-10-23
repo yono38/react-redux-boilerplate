@@ -1,16 +1,8 @@
-// reducers/index.js
-import { INCREMENT, DECREMENT, CLEAR } from '../actions';
+import { combineReducers } from 'redux';
+import countdown from './countdown';
+import counter from './counter';
 
-const initialState = 0;
-export default (state = initialState, action) => {
-  switch (action.type) {
-    case INCREMENT:
-      return state + action.value;
-    case DECREMENT:
-      return state - 1;
-  	case CLEAR:
-  	  return initialState;
-    default:
-      return state;
-  }
-};
+export default combineReducers({
+  countdown,
+  counter
+});

@@ -1,8 +1,7 @@
 // Create components/Counter.jsx
-import React, { PropTypes, Component } from 'react'
+import React, { PropTypes, Component } from 'react';
 
-const Counter = (props) => {
-	console.log('props', props);
+const Counter = props => {
 	const { value, onIncrement, onIncrementFive, onDecrement, onClear } = props;
 	return (
 	  <div>
@@ -16,7 +15,7 @@ const Counter = (props) => {
 }
 
 Counter.propTypes = {
-	value: PropTypes.number,
+	value: PropTypes.number.isRequired,
 	onIncrement: PropTypes.func,
 	onIncrementFive: PropTypes.func,
 	onDecrement: PropTypes.func,
@@ -24,10 +23,7 @@ Counter.propTypes = {
 };
 
 Counter.defaultProps = {
-	value: PropTypes.number,
-	onIncrement: PropTypes.func,
 	onIncrementFive: () => {},
-	onDecrement: PropTypes.func,
 	onClear: () => {}
 };
 

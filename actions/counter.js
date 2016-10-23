@@ -10,4 +10,11 @@ export const incrementBy = ( incrementByValue = 1 ) => {
 		type: INCREMENT,
 		value: incrementByValue
 	}
-}
+};
+
+// TODO add ability to decrement by value
+export const decrementBy = () => {
+	return {
+		type: DECREMENT
+	};
+};

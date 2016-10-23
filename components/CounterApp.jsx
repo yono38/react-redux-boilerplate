@@ -1,11 +1,11 @@
 // components/CounterApp.jsx
 import { connect } from 'react-redux';
-import { CLEAR, DECREMENT, incrementBy } from '../actions';
+import { CLEAR, DECREMENT, incrementBy } from '../actions/counter';
 import Counter from './Counter';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    value: state
+    value: state.counter
   };
 };
 

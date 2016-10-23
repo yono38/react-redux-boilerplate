@@ -5,24 +5,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-import CounterComponent from './components/Counter';
-import CounterApp from './components/CounterApp';
-import counter from './reducers';
-import { 
-	DECREMENT, 
-	CLEAR, 
-	incrementBy 
-} from './actions';
 
-const store = createStore(counter,
+import { Provider } from 'react-redux';
+import CounterApp from './components/CounterApp';
+import CountdownApp from './components/CountdownApp';
+import reducer from './reducers/index';
+
+const store = createStore(reducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ &&
   window.__REDUX_DEVTOOLS_EXTENSION__());
 
 
 ReactDOM.render(
 	<Provider store={store}>
-	  <CounterApp />
+	  <div>
+		  <CounterApp />
+		  <CountdownApp />
+	  </div>
 	</Provider>,
   document.getElementById('root')
 );
