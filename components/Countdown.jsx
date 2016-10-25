@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react'
 
 const Countdown = ({value, isRunning, pid, onStart, onEnd }) => {
-    const countdownDisabled = !(value > 0) ? "disabled" : null;
+    const countdownDisabled = !(value > 0) || isRunning ? "disabled" : null;
 
     // End the countdown
     if (value === 0 && isRunning === true) {
