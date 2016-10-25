@@ -1,14 +1,35 @@
-// reducers/index.js
-import { INCREMENT, DECREMENT } from '../actions';
+import { MOVIES_REQUEST, MOVIES_SUCCESS, MOVIES_FAILURE } from '../actions';
 
-const initialState = 0;
-export default (state = initialState, action) => {
-  switch (action.type) {
-    case INCREMENT:
-      return state + 1;
-    case DECREMENT:
-      return state - 1;
+const initialState = {
+  movies: [],
+  requestPending: false,
+  error: false
+};
+
+export default function(state = initialState, action) {
+  switch(action.type) {
+    case MOVIES_REQUEST: 
+      return Object.assign({}, state, {
+        requestPending: true,
+        error: false
+      });
+
+    case MOVIES_SUCCESS: {
+      return Object.assign({}, state, {
+        requestPending: false,
+        error: false,
+        movies: action.movies
+      });
+    }
+
+    case MOVIES_FAILURE: {
+      return Object.assign({}, state, {
+        requestPending: false,
+        error: action.error
+      })
+    }
+
     default:
       return state;
   }
-};
+}
